@@ -31,7 +31,8 @@ class MAX6675 {
 
   double readCelsius(void);
   double readFahrenheit(void);
-
+  uint16_t readCentiCelcius(void);
+  
   void setOffsetCelsius(double OFFSET);
 
   void setOffsetFahrenheit(double OFFSET);

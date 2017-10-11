@@ -50,7 +50,7 @@ void MAX6675::begin(int8_t CS, double OFFSET) {
   digitalWrite(cs, HIGH);
 }
 
-double MAX6675::readCelsius(void) {
+uint16_t MAX6675::readCentiCelsius(void) {
 
   uint16_t v;
 
@@ -86,11 +86,16 @@ double MAX6675::readCelsius(void) {
 
   v >>= 3;
 
-  return v*0.25;
+  return v * 25;
+}
+
+double MAX6675::readCelcius()
+{
+	return readCentiCelsius() / 100.0;
 }
 
 double MAX6675::readFahrenheit(void) {
-  return readCelsius() * 9.0/5.0 + 32;
+  return readCentiCelsius() / 100.0 * 9.0/5.0 + 32;
 }
 
 void MAX6675::setOffsetCelsius(double OFFSET) {
