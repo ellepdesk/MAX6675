@@ -89,7 +89,7 @@ uint16_t MAX6675::readCentiCelsius(void) {
   return v * 25;
 }
 
-double MAX6675::readCelcius()
+double MAX6675::readCelsius()
 {
 	return readCentiCelsius() / 100.0;
 }
